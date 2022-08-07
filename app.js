@@ -21,7 +21,12 @@ const createApp = () => {
   });
 
   app.use("/data-source", (req, res) => {
-    res.send(userDao.getDataSource() === testDao.getDataSource());
+    const userDataSource = userDao.getDataSource();
+    const testDataSource = testDao.getDataSource();
+
+    res.send(
+      `userDataSource === testDataSource : ${userDataSource === testDataSource}`
+    );
   });
 
   return app;
